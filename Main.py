@@ -18,10 +18,10 @@ def funzione_thread():
         dpg.set_value("Umi", dataU)
 
 
-# Creazione del thread
+# Creazione del thread.
 thread = threading.Thread(target=funzione_thread)
 
-# Avvio del thread
+# Avvio del thread.
 thread.start()
 
 dpg.create_context()

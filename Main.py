@@ -2,6 +2,7 @@ import serial
 from dearpygui import dearpygui as dpg
 from datetime import datetime
 import threading
+import time
 import pytz  # Ensure proper timezone handling
 
 # Set your local timezone (change "Europe/Rome" if needed)
@@ -46,6 +47,7 @@ def funzione_thread():
         # Aggiorna il grafico: la serie ora usa time_list (numerico) che verrà formattato come orario
         dpg.set_value("temp_plot", [time_list, dataT_list])
         dpg.set_value("umi_plot", [time_list, dataU_list])
+        time.sleep(10)
 
 
 # Creazione ed esecuzione del thread in background

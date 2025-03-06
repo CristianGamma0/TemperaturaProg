@@ -62,7 +62,7 @@ def funzione_thread():
             json.dump(dati, f)
 
 
-# Creazione ed esecuzione del thread in background
+# Creazione ed esecuzione del thread in background.
 thread = threading.Thread(target=funzione_thread, daemon=True)
 thread.start()
 

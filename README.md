@@ -1,13 +1,12 @@
-# TemperaturaProg
-# Termostato con Arduino
+# Termometro con Arduino
 
-Il progetto **Termostato con Arduino** è un sistema di monitoraggio ambientale che utilizza una scheda Arduino per rilevare temperatura e umidità tramite un sensore DHT11. I dati vengono trasmessi in tempo reale a un’applicazione desktop sviluppata in Python con **Dear PyGui**, che li visualizza graficamente e li salva in un file JSON per analisi future. Inoltre, il sistema gestisce l'accensione di un LED (indicatore) se la temperatura supera una soglia predefinita.
+Il progetto **Termometro con Arduino** è un sistema di monitoraggio ambientale che utilizza una scheda Arduino per rilevare temperatura e umidità tramite un sensore DHT11. I dati vengono trasmessi in tempo reale a un’applicazione desktop sviluppata in Python con **Dear PyGui**, che li visualizza graficamente e li salva in un file JSON per analisi future. Inoltre, il sistema gestisce l'accensione di due LED (indicatori) in base ad una soglia specificata.
 
 ## Caratteristiche
 
 - **Monitoraggio Ambientale:** Lettura in tempo reale di temperatura e umidità.
 - **Visualizzazione Dati:** Interfaccia grafica che mostra i valori correnti e un grafico dell'andamento nel tempo.
-- **Gestione LED:** Accensione del LED se la temperatura supera la soglia impostata.
+- **Gestione LED:** Accensione del LED rosso se la temperatura supera la soglia impostata o del LED verde se ne è al di sotto.
 - **Storico Dati:** Salvataggio periodico dei dati in un file JSON per ulteriori analisi.
 
 ## Requisiti
@@ -15,7 +14,8 @@ Il progetto **Termostato con Arduino** è un sistema di monitoraggio ambientale 
 ### Hardware
 - **Arduino:** (es. Arduino Uno)
 - **Sensore di Temperatura/Umidità:** DHT11
-- **LED:** LED rosso (per indicare la temperatura oltre soglia)
+- **Relè**
+- **LED:** LED rosso (per indicare la temperatura oltre soglia) e verde
 - **Componenti Accessori:** Breadboard, cavi, resistenze
 
 ### Software
@@ -30,11 +30,11 @@ Il progetto **Termostato con Arduino** è un sistema di monitoraggio ambientale 
 ## Installazione e Setup
 
 1. **Configurazione di Arduino:**
-   - Segui lo schema hardware descritto nel file [Hardware.md](./Hardware) della documentazione.
-   - Apri l'**Arduino IDE** e carica lo sketch Arduino contenuto nel file [Codice.md](./Codice) (sezione Codice Arduino). Questo codice:
+   - Segui lo schema hardware descritto nel file [Hardware](./Hardware) della documentazione.
+   - Apri l'**Arduino IDE** e carica lo sketch Arduino contenuto nel file [Sensore.ino](https://github.com/CristianGamma0/TemperaturaProg/blob/main/Sensore.ino). Questo codice:
      - Legge i dati dal sensore DHT11.
      - Invia i dati in formato "temperatura;umidità" via seriale.
-     - Controlla il LED in base alla soglia di temperatura.
+     - Controlla i LED in base alla soglia di temperatura.
 
 2. **Configurazione dell'Applicazione Python:**
    - Installa le librerie necessarie eseguendo:
@@ -47,9 +47,9 @@ Il progetto **Termostato con Arduino** è un sistema di monitoraggio ambientale 
 ## Struttura del Progetto
 
 Il repository include:
-- **Sketch Arduino:** Codice per la lettura dei dati dal sensore e la gestione del LED.
+- **Sketch Arduino:** Codice per la lettura dei dati dal sensore e la gestione dei LED.
 - **Script Python:** Codice per la ricezione dei dati dalla porta seriale, aggiornamento della GUI e salvataggio dello storico in JSON.
-- **Documentazione Wiki:** Divisa in più pagine per una consultazione dettagliata (Overview, Hardware, Software, Installazione, Codice, Project Management, FAQ).
+- **Documentazione Wiki:** Divisa in più pagine per una consultazione dettagliata (Overview, Hardware, Software, Installazione, Project Management, FAQ).
 
 Per ulteriori dettagli, consulta la [Wiki del progetto](./Wiki).
 
